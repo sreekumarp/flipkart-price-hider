@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi/DoEq1+tkaNNkgZFSVdlRGpXU37n3GuF+PnXkQ8m9jLteO7ENuGzT2DQiiWAsDiitUs2qvM52NP/CgWBWez3DErmOcuzBv2dWfI93QTIGNCkRUk3UUbDoh8oGxKpsBHmM51YxFBFXSHBytJ0lDpepOgFJfPrcTMtktRq5/bgYzwV1z5ZoMfOruOKw6eXA5GyeJ6Hfv2FpX1y9VCRN1zSeUIfjAYPF9qfc94uHG7wP+9crXMhyE9JtNfqKCgheMRHToEtMKddcZ8uTfkJ8myUmtUK8mx2DESeSr+Y5Gl40NaQWq0cNPxVsy4W7MXq2JyJ/9TMprOq5lLJX/QyEMRAwIDAQAB",
+  "name": "change DOM",
+  "version": "1.0",
+  "description": "Change some DOM element",
+
+  "browser_action": {
+    "default_icon": "images/get_started16.png"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.flipkart.com/*"],
+      "all_frames": true,
+      "js": ["inject.js"],
+      "css":["style.css"]
+    }
+  ],
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+P",
+        "linux": "Ctrl+Shift+K",
+        "windows": "Alt+Shift+P",
+        "mac": "Alt+Shift+A"
+      }
+    }
+  },
+  "permissions": ["activeTab", "webNavigation", "*://*/*"]
+}
